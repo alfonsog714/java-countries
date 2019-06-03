@@ -8,9 +8,9 @@ public class Country {
     private String name;
     private Integer population;
     private int landMass;
-    private int medAge;
+    private Integer medAge;
 
-    public Country( String name, Integer population, int landMass, int medAge) {
+    public Country( String name, Integer population, int landMass, Integer medAge) {
         this.id = counter.incrementAndGet();
         this.name = name;
         this.population = population;
@@ -55,11 +55,11 @@ public class Country {
         this.landMass = landMass;
     }
 
-    public int getMedAge() {
+    public Integer getMedAge() {
         return medAge;
     }
 
-    public void setMedAge(int medAge) {
+    public void setMedAge(Integer medAge) {
         this.medAge = medAge;
     }
 
