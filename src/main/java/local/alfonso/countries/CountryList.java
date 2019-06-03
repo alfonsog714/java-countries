@@ -233,6 +233,6 @@ public class CountryList {
                 tempCntryList.add(c);
             }
         }
-        return null;
+        return tempCntryList;
     }
 }
