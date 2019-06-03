@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 @RestController
 @RequestMapping("/population")
-public class SortController {
+public class PopController {
 
 //    localhost:5000/population/size/{people}
 
@@ -22,5 +23,25 @@ public class SortController {
         ArrayList<Country> rtnCnts = CountriesApplication.countryList.findCountries(e -> (e.getPopulation() >= number));
 
         return new ResponseEntity<>(rtnCnts, HttpStatus.OK);
+    }
+
+    //    localhost:5000/population/min
+
+    @GetMapping(value = "/min", produces = {"application/json"})
+    public ResponseEntity<?> minPop()
+    {
+        Country minCntry = Collections.min(CountriesApplication.countryList.countryList, new CountryComp());
+
+        return new ResponseEntity<>(minCntry, HttpStatus.OK);
+    }
+
+    //    localhost:5000/population/max
+
+    @GetMapping(value = "/max", produces = {"application/json"})
+    public ResponseEntity<?> maxPop()
+    {
+        Country maxCntry = Collections.max(CountriesApplication.countryList.countryList, new CountryComp());
+
+        return new ResponseEntity<>(maxCntry, HttpStatus.OK);
     }
 }

@@ -6,11 +6,11 @@ public class Country {
     private static final AtomicLong counter = new AtomicLong();
     private long id;
     private String name;
-    private int population;
+    private Integer population;
     private int landMass;
     private int medAge;
 
-    public Country( String name, int population, int landMass, int medAge) {
+    public Country( String name, Integer population, int landMass, int medAge) {
         this.id = counter.incrementAndGet();
         this.name = name;
         this.population = population;
@@ -39,11 +39,11 @@ public class Country {
         this.name = name;
     }
 
-    public int getPopulation() {
+    public Integer getPopulation() {
         return population;
     }
 
-    public void setPopulation(int population) {
+    public void setPopulation(Integer population) {
         this.population = population;
     }
 
